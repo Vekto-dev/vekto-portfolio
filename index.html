@@ -8,13 +8,13 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
       --bg: #07080a;
-      --text: rgba(255,255,255,.88);
-      --muted: rgba(255,255,255,.62);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.66);
       --muted2: rgba(255,255,255,.48);
       --shadow: 0 10px 30px rgba(0,0,0,.35);
       --r2: 26px;
@@ -32,7 +32,6 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Background */
     .bg{
       position: fixed; inset: 0;
       pointer-events:none; z-index:-1;
@@ -57,7 +56,6 @@
     a{ color:inherit; text-decoration:none; }
     .wrap{ max-width: var(--max); margin:0 auto; padding: 24px; }
 
-    /* Buttons */
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
       padding: 10px 14px;
@@ -72,17 +70,16 @@
     }
     .btn:hover{ background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.18); transform: translateY(-1px); }
     .btn.primary{
-      background: rgba(255,255,255,.92);
+      background: rgba(255,255,255,.94);
       color: rgba(0,0,0,.92);
       border-color: rgba(255,255,255,.35);
     }
-    .btn.primary:hover{ background: rgba(255,255,255,1); }
 
-    /* NAV */
     header.nav{
       display:flex; align-items:center; justify-content:space-between;
       padding: 14px 0;
     }
+
     nav.links{
       display:flex; gap: 16px; align-items:center;
       color: var(--muted);
@@ -95,61 +92,37 @@
       transition: background .2s ease, color .2s ease;
     }
     nav.links a:hover{ background: rgba(255,255,255,.06); color: var(--text); }
+
     .cta{ display:flex; gap:10px; align-items:center; }
 
-    /* Brand lockup */
-    .brand{ display:flex; align-items:center; user-select:none; }
-    .mark{
-      display:flex; align-items:center; gap: 10px;
-      position: relative;
-      padding: 6px 8px;
-      border-radius: 14px;
-    }
-    .mark::after{
-      content:"";
-      position:absolute; inset:-1px;
-      border-radius: 14px;
-      background: linear-gradient(110deg, transparent 0%, rgba(255,255,255,.10) 35%, transparent 60%);
-      transform: translateX(-120%);
-      opacity: 0;
-      pointer-events:none;
-    }
-    body.loaded .mark::after{ animation: shine 1.2s ease .55s 1; }
-    @keyframes shine{
-      0%{ transform: translateX(-120%); opacity:0; }
-      25%{ opacity:.6; }
-      100%{ transform: translateX(120%); opacity:0; }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      user-select:none;
     }
 
-    /* SVG: force stable sizing (Safari fix) */
-    .brand svg, .heroMarks svg{ color: rgba(255,255,255,.95); }
-    .brand svg *, .heroMarks svg *{ fill: currentColor; }
-
-    .isoSvg{
+    .brandMark{
+      width: 34px;
       height: 34px;
-      width: auto;
-      aspect-ratio: 300.02 / 283.47; /* Safari-safe */
       display:block;
+      color: rgba(255,255,255,.96);
+      flex: 0 0 auto;
     }
-    .wordSvg{
-      height: 16px;
-      width: auto;
-      aspect-ratio: 540.77 / 114.04; /* Safari-safe */
-      display:block;
-      transform: translateY(1px);
+    .brandMark *{ fill: currentColor; }
+
+    .brandText{
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: rgba(255,255,255,.95);
     }
 
-    .brand .isoSvg, .brand .wordSvg{ opacity: 0; transform: translateY(6px) scale(.98); }
-    body.loaded .brand .isoSvg{ animation: popIn .6s ease .10s forwards; }
-    body.loaded .brand .wordSvg{ animation: popIn .6s ease .18s forwards; }
-    @keyframes popIn{ to{ opacity:1; transform: translateY(0) scale(1); } }
-
-    /* HERO */
     main.hero{
       padding: 70px 0 34px;
       display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 28px;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 32px;
       align-items: start;
     }
 
@@ -174,40 +147,37 @@
       box-shadow: 0 0 0 4px rgba(255,255,255,.12);
     }
 
-    .heroMarks{
-      margin: 6px 0 14px;
+    .heroBrand{
       display:flex;
-      flex-direction: column;
+      flex-direction:column;
       gap: 10px;
-      position: relative;
-      max-width: 100%;
+      margin: 4px 0 14px;
     }
 
-    /* HERO wordmark: explicit width fixes Safari */
     .heroWord{
-      width: min(560px, 100%);
-      height: auto;
-      aspect-ratio: 540.77 / 114.04;
-      display:block;
+      font-size: clamp(56px, 12vw, 128px);
+      line-height: .92;
+      font-weight: 800;
+      letter-spacing: -0.08em;
+      color: rgba(255,255,255,.96);
+      margin: 0;
     }
 
-    /* Typing tagline */
     .taglineWrap{
-      position: relative;
-      height: clamp(16px, 2.2vw, 22px);
+      min-height: 32px;
       display:flex;
       align-items:center;
-      max-width: 100%;
+      flex-wrap: nowrap;
     }
+
     .taglineType{
-      font-size: clamp(16px, 2.2vw, 22px);
+      font-size: clamp(18px, 2.3vw, 26px);
       line-height: 1;
-      letter-spacing: -0.01em;
-      color: rgba(255,255,255,.92);
+      letter-spacing: -0.03em;
+      color: rgba(255,255,255,.94);
       white-space: nowrap;
-      user-select: none;
-      max-width: 100%;
     }
+
     .caret{
       width: 10px;
       height: 1.05em;
@@ -219,19 +189,6 @@
     }
     @keyframes caretBlink{ 50%{ opacity: 0; } }
 
-    .fallbackTag{
-      position:absolute;
-      left:0;
-      top:50%;
-      transform: translateY(-50%);
-      opacity: 0;
-      pointer-events:none;
-      height: clamp(16px, 2.2vw, 22px);
-      width: auto;
-      aspect-ratio: 599.83 / 44.16;
-      display:block;
-    }
-
     .sub{
       margin: 0 0 18px;
       color: var(--muted);
@@ -239,7 +196,9 @@
       line-height: 1.65;
       max-width: 52ch;
     }
+
     .heroActions{ display:flex; gap:12px; flex-wrap:wrap; margin-top: 14px; }
+
     .mini{
       margin-top: 14px;
       color: var(--muted2);
@@ -254,7 +213,6 @@
       background: rgba(255,255,255,.04);
     }
 
-    /* Terminal */
     .terminal{
       border-radius: var(--r2);
       border: 1px solid rgba(255,255,255,.12);
@@ -291,7 +249,6 @@
     .prompt{ color: rgba(255,255,255,.92); }
     .muted{ color: rgba(255,255,255,.54); }
 
-    /* Sections */
     section{ padding: 34px 0; }
     .sectionTitle{
       display:flex; align-items:flex-end; justify-content:space-between;
@@ -369,32 +326,36 @@
     .reveal{ opacity:0; transform: translateY(10px); transition: opacity .7s ease, transform .7s ease; }
     .reveal.show{ opacity:1; transform: translateY(0); }
 
-    /* Reduced motion */
     @media (prefers-reduced-motion: reduce){
       *{ animation: none !important; transition: none !important; scroll-behavior: auto !important; }
       .reveal{ opacity:1; transform:none; }
-      #taglineType, .caret{ display:none !important; }
-      .fallbackTag{
-        opacity: .92 !important;
-        position: static;
-        transform:none;
-      }
+      .caret{ display:none; }
     }
 
     @media (max-width: 980px){
-      main.hero{ grid-template-columns: 1fr; padding-top: 48px; }
+      main.hero{
+        grid-template-columns: 1fr;
+        padding-top: 48px;
+      }
       .terminal{ order:2; }
       .card{ grid-column: span 12; }
       .about{ grid-template-columns: 1fr; }
       nav.links{ display:none; }
     }
+
     @media (max-width: 520px){
       .wrap{ padding: 18px; }
+      .brandText{ display:none; }
+      .heroWord{
+        font-size: clamp(52px, 21vw, 96px);
+      }
+      .taglineType{
+        font-size: 17px;
+      }
       .btn{ width: 100%; }
       .cta .btn{ width:auto; }
       .heroActions .btn{ width: 100%; }
       .footer{ flex-direction: column; align-items:flex-start; }
-      .wordSvg{ display:none; }
     }
   </style>
 </head>
@@ -402,50 +363,19 @@
 <body>
   <div class="bg" aria-hidden="true"></div>
 
-  <!-- SVG symbols -->
   <svg width="0" height="0" style="position:absolute; left:-9999px; top:-9999px;" aria-hidden="true" focusable="false">
     <symbol id="vekto-logo" viewBox="0 0 300.02 283.47">
       <polygon points="26.26 24.76 26.22 258.64 137.3 258.73 224.37 68.56 248.32 89 150.63 258.73 273.76 258.69 273.76 24.76 161.82 24.76 106.93 123.97 52.08 24.76 26.26 24.76"/>
     </symbol>
-
-    <symbol id="vekto-word" viewBox="0 0 540.77 114.04">
-      <path d="M537.66,76.56c-10.14,31.37-45.46,43.51-76.85,34.68-19.91-5.61-34.17-20.44-39.63-40.66l-4.37-16.2c-4.91-18.2,8.56-36.82,29.32-40.64l33.27-6.12c25.68-4.72,50.32,10.96,56.94,36.1l1.99,7.56h-67.34l-1.08-4.12c-1.72-6.54-8.12-10.69-14.8-9.46l-19.79,3.64c-5.89,1.08-9.7,6.88-8.32,12.71l4.37,16.2c2.8,10.39,10.16,18.9,20.37,23.35,22.04,9.6,47.8.31,58.16-20.53l.66-1.33,22.11,5.02-.7,2.09Z"/>
-      <path d="M399.18,83.39h-58.78l-10.38,27.62h-22.86l52.61-137.47h19.95l52.68,137.47h-22.93l-10.29-27.62Zm-7.1-18.99-22.25-59.37-22.29,59.37h44.54Z"/>
-      <path d="M277.46,111.01h-21.34V-26.46h21.34V111.01Z"/>
-      <path d="M235.46-26.46V111.01h-21.34V-26.46h21.34Z"/>
-      <path d="M112.89,111.01H45.48V-26.46h66.85v18.99H66.82V31.8h41.27v18.9h-41.27v41.32h46.08v18.99Z"/>
-      <path d="M18.79,47.36l-18.79,63.65v-137.47H21.34V45.4l18.85-71.86h21.97l-28.9,96.59,30.8,40.88H40.49l-21.69-63.65Z"/>
-    </symbol>
-
-    <symbol id="vekto-tagline" viewBox="0 0 599.83 44.16">
-      <path d="M34.32,28.92c.35,8.13-5.45,14.27-13.79,14.39L0,43.59V.06s19,.04,19,.04c8.11.02,13.68,5.98,13.74,14.57.06,8.17-5.16,13.42-12.45,14.05l14.33,15.43h-10.26l-13.01-15.22h-3.38v15.22H0V.06h20.53c8.69,0,13.79,6.62,13.79,14.44s-5.07,13.6-12.18,14.29l12.18,13.54ZM8.04,7.43v14.64h11.54c3.38,0,5.74-2.95,5.74-7.35s-2.32-7.29-5.74-7.29H8.04Z"/>
-      <path d="M82.25,36.65v7.5h-32.39V.06h31.65v7.5h-23.58v10.71h19.76v7.39h-19.76v11h24.32Z"/>
-      <path d="M132.13.06l-17.76,44.09h-9.58L87.06.06h9.13l13.36,34.99L123,.06h9.13Z"/>
-      <path d="M177.78,36.65v7.5h-32.39V.06h31.65v7.5h-23.58v10.71h19.76v7.39h-19.76v11h24.32Z"/>
-      <path d="M206.21,24.29l-7.49,8.06v11.8h-8.04V.06h8.04v21.96L218.87.06h9.93l-17.07,18.37,18.68,25.72h-9.76l-14.44-19.86Z"/>
-      <path d="M264.55,7.56v36.59h-8.04V7.56h-13.49V.06h34.99v7.5h-13.46Z"/>
-      <path d="M335.45,22.1c0,13.46-10.14,22.06-22.95,22.06s-22.92-8.6-22.92-22.06S299.72,0,312.5,0s22.95,8.66,22.95,22.1ZM297.62,22.1c0,8.95,6.1,14.57,14.88,14.57s14.95-5.62,14.95-14.57-6.16-14.57-14.95-14.57-14.88,5.63-14.88,14.57Z"/>
-      <path d="M386.96.06l-17.76,44.09h-9.58L341.89.06h9.13l13.36,34.99L377.83.06h9.13Z"/>
-      <path d="M426.26,44.15l-3.73-10.2h-19.21l-3.73,10.2h-8.72L407.68.06h10.48l16.76,44.09h-8.66ZM405.88,26.52h14.11l-7.04-19.3-7.07,19.3Z"/>
-      <path d="M447.05.06h8.04v36.59h21.55v7.5h-29.59V.06Z"/>
-      <path d="M500.48,44.15h-8.04V.06h8.04v44.09Z"/>
-      <path d="M559.94,22.1c0,13.46-10.14,22.06-22.95,22.06s-22.92-8.6-22.92-22.06S524.21,0,536.99,0s22.95,8.66,22.95,22.1ZM522.11,22.1c0,8.95,6.1,14.57,14.88,14.57s14.95-5.62,14.95-14.57-6.16-14.57-14.95-14.57-14.88,5.63-14.88,14.57Z"/>
-      <path d="M599.83,36.65v7.5h-32.39V.06h31.65v7.5h-23.58v10.71h19.76v7.39h-19.76v11h24.32Z"/>
-    </symbol>
   </svg>
 
   <div class="wrap">
-    <!-- NAV -->
     <header class="nav">
       <a class="brand" href="#top" aria-label="Inicio">
-        <span class="mark" aria-hidden="true">
-          <svg class="isoSvg" viewBox="0 0 300.02 283.47" preserveAspectRatio="xMinYMid meet">
-            <use href="#vekto-logo"></use>
-          </svg>
-          <svg class="wordSvg" viewBox="0 0 540.77 114.04" preserveAspectRatio="xMinYMid meet">
-            <use href="#vekto-word"></use>
-          </svg>
-        </span>
+        <svg class="brandMark" viewBox="0 0 300.02 283.47" aria-hidden="true">
+          <use href="#vekto-logo"></use>
+        </svg>
+        <span class="brandText">VEKTO</span>
       </a>
 
       <nav class="links" aria-label="Secciones">
@@ -461,7 +391,6 @@
       </div>
     </header>
 
-    <!-- HERO -->
     <main id="top" class="hero">
       <div class="reveal">
         <div class="pillrow">
@@ -470,24 +399,17 @@
           <span class="pill">Rosario, AR • remoto</span>
         </div>
 
-        <div class="heroMarks">
-          <svg class="heroWord" viewBox="0 0 540.77 114.04" preserveAspectRatio="xMinYMid meet" aria-label="VEKTO">
-            <use href="#vekto-word"></use>
-          </svg>
+        <div class="heroBrand">
+          <h1 class="heroWord">VEKTO</h1>
 
           <div class="taglineWrap" aria-label="tagline">
-            <span id="taglineType" class="taglineType" aria-hidden="true"></span>
+            <span id="taglineType" class="taglineType"></span>
             <span class="caret" aria-hidden="true"></span>
-
-            <!-- fallback -->
-            <svg class="fallbackTag" viewBox="0 0 599.83 44.16" preserveAspectRatio="xMinYMid meet" aria-label="Build the future">
-              <use href="#vekto-tagline"></use>
-            </svg>
           </div>
         </div>
 
         <p class="sub">
-          Experiencia, criterio y ejecución al más alto nivel.<br/>
+          Experiencia, criterio y ejecución al más alto nivel.<br>
           Si no es excelente, no está terminado.
         </p>
 
@@ -523,7 +445,6 @@
       </aside>
     </main>
 
-    <!-- PRINCIPLES -->
     <section id="principios" class="reveal">
       <div class="sectionTitle">
         <div>
@@ -562,7 +483,6 @@
       </div>
     </section>
 
-    <!-- PROJECTS -->
     <section id="proyectos" class="reveal">
       <div class="sectionTitle">
         <div>
@@ -616,7 +536,6 @@
       </div>
     </section>
 
-    <!-- ABOUT + CONTACT -->
     <section id="sobre" class="reveal">
       <div class="sectionTitle">
         <div>
@@ -656,19 +575,18 @@
 
   <script>
     window.addEventListener("DOMContentLoaded", () => {
-      document.body.classList.add("loaded");
       document.getElementById("year").textContent = new Date().getFullYear();
       startTaglineTyping();
     });
 
-    // Reveal on scroll
     const els = Array.from(document.querySelectorAll(".reveal"));
     const io = new IntersectionObserver((entries) => {
-      for (const e of entries) if (e.isIntersecting) e.target.classList.add("show");
+      for (const e of entries) {
+        if (e.isIntersecting) e.target.classList.add("show");
+      }
     }, { threshold: 0.12 });
     els.forEach(el => io.observe(el));
 
-    // Smooth anchors
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener("click", (ev) => {
         const id = a.getAttribute("href");
@@ -686,7 +604,8 @@
       if (!el) return;
 
       if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches){
-        return; // fallback SVG is shown by CSS
+        el.textContent = "Build the future";
+        return;
       }
 
       const phrases = [
@@ -695,14 +614,14 @@
         "Build what lasts"
       ];
 
-      const typingSpeed = 70;     // ms per char
-      const deletingSpeed = 40;   // ms per char
+      const typingSpeed = 70;
+      const deletingSpeed = 40;
       const pauseAfterTyped = 1100;
       const pauseAfterDeleted = 420;
 
       let phraseIndex = 0;
       let i = 0;
-      let direction = 1; // 1 typing, -1 deleting
+      let direction = 1;
 
       const tick = () => {
         const text = phrases[phraseIndex];
