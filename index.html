@@ -3,12 +3,71 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="VEKTO — Digital product studio. Producto, sistemas, presencia web, SEO, IA y mejoras digitales con criterio." />
-  <title>vekto.dev</title>
+  <meta name="theme-color" content="#05060a" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <title>VEKTO — Estudio digital de producto, sistemas y experiencias web</title>
+  <meta
+    name="description"
+    content="VEKTO desarrolla productos digitales, sistemas, landings, SEO técnico, automatización e integración de IA para negocios y profesionales que buscan una presencia digital más sólida."
+  />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://vekto.dev/" />
+
+  <!-- Hreflang -->
+  <link rel="alternate" hreflang="es" href="https://vekto.dev/" />
+  <link rel="alternate" hreflang="en" href="https://vekto.dev/" />
+  <link rel="alternate" hreflang="x-default" href="https://vekto.dev/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="VEKTO — Estudio digital de producto, sistemas y experiencias web" />
+  <meta
+    property="og:description"
+    content="Productos digitales, sistemas, optimización web, SEO técnico e IA aplicada para negocios y profesionales."
+  />
+  <meta property="og:url" content="https://vekto.dev/" />
+  <meta property="og:site_name" content="VEKTO" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:image" content="https://vekto.dev/YOUR_OG_IMAGE_URL" />
+  <meta property="og:image:alt" content="VEKTO — Digital product studio" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="VEKTO — Estudio digital de producto, sistemas y experiencias web" />
+  <meta
+    name="twitter:description"
+    content="Productos digitales, sistemas, optimización web, SEO técnico e IA aplicada para negocios y profesionales."
+  />
+  <meta name="twitter:image" content="https://vekto.dev/YOUR_OG_IMAGE_URL" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "VEKTO",
+    "url": "https://vekto.dev/",
+    "logo": "https://vekto.dev/logo.png",
+    "description": "Estudio digital enfocado en producto, sistemas, presencia web, SEO técnico, automatización e integración de IA.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Rosario",
+      "addressCountry": "AR"
+    },
+    "email": "mailto:Lautaro@vekto.dev",
+    "sameAs": [
+      "https://www.linkedin.com/in/YOUR_LINKEDIN_URL"
+    ]
+  }
+  </script>
 
   <style>
     :root{
@@ -87,6 +146,7 @@
       letter-spacing: -.01em;
       backdrop-filter: blur(10px);
       transition: transform .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
+      cursor: pointer;
     }
 
     .btn:hover{
@@ -107,12 +167,12 @@
     }
 
     .nav{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:18px;
-  padding: 8px 0 6px;
-}
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding: 8px 0 6px;
+    }
 
     .brand{
       display:flex;
@@ -135,31 +195,24 @@
     .brandTextWrap{
       display:flex;
       flex-direction:column;
-      gap:2px;
+      gap:1px;
       min-width:0;
     }
 
-    .brandTextWrap{
-  display:flex;
-  flex-direction:column;
-  gap:1px;
-  min-width:0;
-}
+    .brandText{
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -.05em;
+      line-height: .95;
+      color: rgba(255,255,255,.97);
+    }
 
-.brandText{
-  font-size: 16px;
-  font-weight: 800;
-  letter-spacing: -.05em;
-  line-height: .95;
-  color: rgba(255,255,255,.97);
-}
-
-.brandSub{
-  font-size: 10px;
-  color: var(--muted-2);
-  letter-spacing: -.01em;
-  line-height: .95;
-}
+    .brandSub{
+      font-size: 10px;
+      color: var(--muted-2);
+      letter-spacing: -.01em;
+      line-height: .95;
+    }
 
     .navLinks{
       display:flex;
@@ -170,7 +223,7 @@
       font-weight: 500;
     }
 
-    .navLinks a{
+    .navLinks a, .lang-switch button{
       padding: 9px 12px;
       border-radius: 12px;
       transition: background .18s ease, color .18s ease;
@@ -187,13 +240,39 @@
       gap:10px;
     }
 
+    .lang-switch{
+      display:flex;
+      align-items:center;
+      gap:4px;
+      margin-left: 4px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: 12px;
+      padding: 4px;
+    }
+
+    .lang-switch button{
+      background: transparent;
+      border: 0;
+      color: var(--muted);
+      font: inherit;
+      cursor: pointer;
+      min-height: 34px;
+      padding: 0 10px;
+    }
+
+    .lang-switch button.active{
+      background: rgba(255,255,255,.10);
+      color: var(--text);
+    }
+
     .hero{
-  padding: 28px 0 36px;
-  display:grid;
-  grid-template-columns: minmax(0, 1.06fr) minmax(360px, .94fr);
-  gap: 38px;
-  align-items:start;
-}
+      padding: 28px 0 36px;
+      display:grid;
+      grid-template-columns: minmax(0, 1.06fr) minmax(360px, .94fr);
+      gap: 38px;
+      align-items:start;
+    }
 
     .eyebrowRow{
       display:flex;
@@ -612,22 +691,23 @@
     }
 
     @media (max-width: 720px){
-      ..nav{
-  flex-wrap:wrap;
-  padding-bottom: 4px;
-}
+      .nav{
+        flex-wrap:wrap;
+        padding-bottom: 4px;
+      }
 
-.navLinks{
-  display:none;
-}
+      .navLinks{
+        display:none;
+      }
 
-.navCta{
-  margin-left:auto;
-}
+      .navCta{
+        margin-left:auto;
+      }
 
-.hero{
-  padding-top: 18px;
-}
+      .hero{
+        padding-top: 18px;
+      }
+
       .heroTitle{
         font-size: clamp(52px, 20vw, 94px);
       }
@@ -701,53 +781,56 @@
         </svg>
         <span class="brandTextWrap">
           <span class="brandText">VEKTO</span>
-          <span class="brandSub">Digital product studio</span>
+          <span class="brandSub" data-i18n="brand_sub">Digital product studio</span>
         </span>
       </a>
 
       <nav class="navLinks" aria-label="Secciones">
-        <a href="#capacidades">Capacidades</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#conceptos">Conceptos</a>
-        <a href="#estudio">Estudio</a>
-        <a href="#contacto">Contacto</a>
+        <a href="#capacidades" data-i18n="nav_capabilities">Capacidades</a>
+        <a href="#proyectos" data-i18n="nav_projects">Proyectos</a>
+        <a href="#conceptos" data-i18n="nav_concepts">Conceptos</a>
+        <a href="#estudio" data-i18n="nav_studio">Estudio</a>
+        <a href="#contacto" data-i18n="nav_contact">Contacto</a>
       </nav>
 
       <div class="navCta">
-        <a class="btn" href="#contacto">Contacto</a>
-        <a class="btn primary" href="#proyectos">Ver trabajos</a>
+        <div class="lang-switch" aria-label="Seleccionar idioma">
+          <button id="lang-es" class="active" type="button">ES</button>
+          <button id="lang-en" type="button">EN</button>
+        </div>
+        <a class="btn primary" href="#proyectos" data-i18n="nav_cta">Ver trabajos</a>
       </div>
     </header>
 
     <main id="top" class="hero">
       <section class="reveal">
         <div class="eyebrowRow">
-          <span class="eyebrow"><span class="eyebrowDot" aria-hidden="true"></span> Independent digital studio</span>
-          <span class="eyebrow">Producto • sistemas • optimización</span>
-          <span class="eyebrow">Rosario, AR • remoto</span>
+          <span class="eyebrow"><span class="eyebrowDot" aria-hidden="true"></span><span data-i18n="eyebrow_1">Independent digital studio</span></span>
+          <span class="eyebrow" data-i18n="eyebrow_2">Producto • sistemas • optimización</span>
+          <span class="eyebrow" data-i18n="eyebrow_3">Rosario, AR • remoto</span>
         </div>
 
         <h1 class="heroTitle">VEKTO</h1>
 
         <div class="taglineWrap" aria-label="Tagline animado">
-          <span id="taglineType" class="taglineType">Build the future</span>
+          <span id="taglineType" class="taglineType"></span>
           <span class="caret" aria-hidden="true"></span>
         </div>
 
-        <p class="heroLead">
+        <p class="heroLead" data-i18n="hero_lead">
           VEKTO desarrolla productos digitales, sistemas y mejoras web con foco en claridad,
           rendimiento, presencia de marca y utilidad real para negocios y profesionales.
         </p>
 
         <div class="heroActions">
-          <a class="btn primary" href="#contacto">Hablemos</a>
-          <a class="btn" href="#capacidades">Qué podemos hacer</a>
+          <a class="btn primary" href="#contacto" data-i18n="hero_cta_1">Hablemos</a>
+          <a class="btn" href="#capacidades" data-i18n="hero_cta_2">Qué podemos hacer</a>
         </div>
 
         <div class="heroMeta">
-          <span><i aria-hidden="true"></i> Criterio</span>
-          <span><i aria-hidden="true"></i> Ejecución</span>
-          <span><i aria-hidden="true"></i> Escalabilidad</span>
+          <span><i aria-hidden="true"></i><span data-i18n="meta_1">Criterio</span></span>
+          <span><i aria-hidden="true"></i><span data-i18n="meta_2">Ejecución</span></span>
+          <span><i aria-hidden="true"></i><span data-i18n="meta_3">Escalabilidad</span></span>
         </div>
       </section>
 
@@ -762,16 +845,16 @@
 
         <div class="terminalBody">
           <span class="line"><span class="prompt">$</span> focus</span>
-          <span class="line soft">productos web • sistemas internos • landings • optimización digital</span>
+          <span class="line soft" data-i18n="terminal_1">productos web • sistemas internos • landings • optimización digital</span>
 
           <span class="line" style="margin-top:12px;"><span class="prompt">$</span> solutions</span>
-          <span class="line soft">SEO • IA aplicada • mejora de sitios • procesos • presencia digital</span>
+          <span class="line soft" data-i18n="terminal_2">SEO • IA aplicada • mejora de sitios • procesos • presencia digital</span>
 
           <span class="line" style="margin-top:12px;"><span class="prompt">$</span> stack</span>
-          <span class="line soft">HTML • CSS • JavaScript • PWA • Vercel • automatización</span>
+          <span class="line soft" data-i18n="terminal_3">HTML • CSS • JavaScript • PWA • Vercel • automatización</span>
 
           <span class="line" style="margin-top:12px;"><span class="prompt">$</span> approach</span>
-          <span class="line soft">claridad • velocidad • percepción de marca • resolución real</span>
+          <span class="line soft" data-i18n="terminal_4">claridad • velocidad • percepción de marca • resolución real</span>
         </div>
       </aside>
     </main>
@@ -779,22 +862,22 @@
     <section id="capacidades" class="reveal">
       <div class="sectionHeader">
         <div>
-          <h2>Capacidades</h2>
-          <p>Soluciones digitales pensadas para mejorar presencia, operación y crecimiento.</p>
+          <h2 data-i18n="capabilities_title">Capacidades</h2>
+          <p data-i18n="capabilities_sub">Soluciones digitales pensadas para mejorar presencia, operación y crecimiento.</p>
         </div>
-        <div class="sectionKicker">No solo presencia. También estructura.</div>
+        <div class="sectionKicker" data-i18n="capabilities_kicker">No solo presencia. También estructura.</div>
       </div>
 
       <div class="grid">
         <article class="card">
           <div class="cardHead">
             <div>
-              <h3 class="cardTitle">Productos y herramientas digitales</h3>
-              <div class="cardSub">Sistemas, paneles y flujos para resolver procesos reales.</div>
+              <h3 class="cardTitle" data-i18n="cap_1_title">Productos y herramientas digitales</h3>
+              <div class="cardSub" data-i18n="cap_1_sub">Sistemas, paneles y flujos para resolver procesos reales.</div>
             </div>
-            <span class="cardLabel">Producto</span>
+            <span class="cardLabel" data-i18n="label_product">Producto</span>
           </div>
-          <p>
+          <p data-i18n="cap_1_text">
             Desarrollo de herramientas web, sistemas internos y soluciones digitales pensadas
             para ordenar tareas, agilizar operaciones y reducir fricción en el trabajo diario.
           </p>
@@ -808,12 +891,12 @@
         <article class="card">
           <div class="cardHead">
             <div>
-              <h3 class="cardTitle">Sitios y landings de alto impacto</h3>
-              <div class="cardSub">Claridad visual, velocidad y mejor presentación comercial.</div>
+              <h3 class="cardTitle" data-i18n="cap_2_title">Sitios y landings de alto impacto</h3>
+              <div class="cardSub" data-i18n="cap_2_sub">Claridad visual, velocidad y mejor presentación comercial.</div>
             </div>
-            <span class="cardLabel">Web</span>
+            <span class="cardLabel" data-i18n="label_web">Web</span>
           </div>
-          <p>
+          <p data-i18n="cap_2_text">
             Sitios y landings orientados a percepción de marca, estructura clara, carga rápida
             y una experiencia que transmita más solidez desde el primer contacto.
           </p>
@@ -827,12 +910,12 @@
         <article class="card">
           <div class="cardHead">
             <div>
-              <h3 class="cardTitle">SEO y posicionamiento</h3>
-              <div class="cardSub">Mejoras estructurales para aumentar orden y visibilidad.</div>
+              <h3 class="cardTitle" data-i18n="cap_3_title">SEO y posicionamiento</h3>
+              <div class="cardSub" data-i18n="cap_3_sub">Mejoras estructurales para aumentar orden y visibilidad.</div>
             </div>
-            <span class="cardLabel">Optimización</span>
+            <span class="cardLabel" data-i18n="label_optimization">Optimización</span>
           </div>
-          <p>
+          <p data-i18n="cap_3_text">
             Ajustes técnicos, estructurales y de contenido para fortalecer presencia en buscadores,
             mejorar legibilidad del sitio y apoyar un crecimiento digital más sólido.
           </p>
@@ -846,12 +929,12 @@
         <article class="card">
           <div class="cardHead">
             <div>
-              <h3 class="cardTitle">IA aplicada a negocio</h3>
-              <div class="cardSub">Automatización, asistencia y reducción de tareas repetitivas.</div>
+              <h3 class="cardTitle" data-i18n="cap_4_title">IA aplicada a negocio</h3>
+              <div class="cardSub" data-i18n="cap_4_sub">Automatización, asistencia y reducción de tareas repetitivas.</div>
             </div>
             <span class="cardLabel">IA</span>
           </div>
-          <p>
+          <p data-i18n="cap_4_text">
             Integración de soluciones con inteligencia artificial para ordenar información,
             automatizar procesos, asistir flujos internos o acelerar tareas operativas.
           </p>
@@ -865,12 +948,12 @@
         <article class="card">
           <div class="cardHead">
             <div>
-              <h3 class="cardTitle">Mejora de sitios existentes</h3>
-              <div class="cardSub">Corrección, rediseño y optimización de webs que hoy no rinden.</div>
+              <h3 class="cardTitle" data-i18n="cap_5_title">Mejora de sitios existentes</h3>
+              <div class="cardSub" data-i18n="cap_5_sub">Corrección, rediseño y optimización de webs que hoy no rinden.</div>
             </div>
-            <span class="cardLabel">Rescate</span>
+            <span class="cardLabel" data-i18n="label_rescue">Rescate</span>
           </div>
-          <p>
+          <p data-i18n="cap_5_text">
             Análisis y corrección de problemas en páginas existentes: rendimiento, estructura,
             experiencia, diseño, legibilidad, errores técnicos y percepción general.
           </p>
@@ -884,12 +967,12 @@
         <article class="card">
           <div class="cardHead">
             <div>
-              <h3 class="cardTitle">Organización digital y procesos</h3>
-              <div class="cardSub">Orden para presupuestos, clientes, operaciones y flujos comerciales.</div>
+              <h3 class="cardTitle" data-i18n="cap_6_title">Organización digital y procesos</h3>
+              <div class="cardSub" data-i18n="cap_6_sub">Orden para presupuestos, clientes, operaciones y flujos comerciales.</div>
             </div>
-            <span class="cardLabel">Operación</span>
+            <span class="cardLabel" data-i18n="label_operation">Operación</span>
           </div>
-          <p>
+          <p data-i18n="cap_6_text">
             Diseño de estructuras, paneles y herramientas para negocios que necesitan ordenar mejor
             sus operaciones, clientes, presupuestos o procesos de trabajo.
           </p>
@@ -905,44 +988,44 @@
     <section id="proyectos" class="reveal">
       <div class="sectionHeader">
         <div>
-          <h2>Proyectos</h2>
-          <p>Espacio preparado para trabajo real en producción y nuevas piezas que se irán sumando.</p>
+          <h2 data-i18n="projects_title">Proyectos</h2>
+          <p data-i18n="projects_sub">Espacio preparado para trabajo real en producción y nuevas piezas que se irán sumando.</p>
         </div>
-        <div class="sectionKicker">Base lista para crecer.</div>
+        <div class="sectionKicker" data-i18n="projects_kicker">Base lista para crecer.</div>
       </div>
 
       <div class="grid">
         <article class="card featured">
           <div class="cardHead">
             <div>
-              <h3 class="cardTitle">Trabajo en evolución</h3>
-              <div class="cardSub">Este portfolio está preparado para incorporar casos reales, sistemas y productos a medida que se publiquen.</div>
+              <h3 class="cardTitle" data-i18n="proj_main_title">Trabajo en evolución</h3>
+              <div class="cardSub" data-i18n="proj_main_sub">Portfolio preparado para incorporar casos reales, sistemas y productos.</div>
             </div>
-            <span class="cardLabel">Portfolio vivo</span>
+            <span class="cardLabel" data-i18n="label_live_portfolio">Portfolio vivo</span>
           </div>
 
-          <p>
+          <p data-i18n="proj_main_text_1">
             La estructura de VEKTO está pensada para crecer con proyectos reales y conceptuales sin perder
             claridad ni consistencia. La intención no es llenar espacio, sino construir una base sólida donde
             cada pieza nueva aporte autoridad real.
           </p>
 
-          <p>
-            A medida que se sumen nuevos trabajos, esta sección va a convertirse en el núcleo del portfolio:
+          <p data-i18n="proj_main_text_2">
+            A medida que se sumen nuevos trabajos, esta sección se convertirá en el núcleo del portfolio:
             casos activos, mejoras, productos propios y desarrollos orientados a negocio.
           </p>
 
           <div class="stack">
-            <span class="chip">Casos reales</span>
-            <span class="chip">Productos</span>
-            <span class="chip">Sistemas</span>
-            <span class="chip">Landings</span>
-            <span class="chip">Mejoras</span>
+            <span class="chip" data-i18n="chip_real_cases">Casos reales</span>
+            <span class="chip" data-i18n="chip_products">Productos</span>
+            <span class="chip" data-i18n="chip_systems">Sistemas</span>
+            <span class="chip" data-i18n="chip_landings">Landings</span>
+            <span class="chip" data-i18n="chip_improvements">Mejoras</span>
           </div>
 
           <div class="cardActions">
-            <a class="btn primary" href="#contacto">Iniciar proyecto</a>
-            <a class="btn" href="#conceptos">Ver concepts</a>
+            <a class="btn primary" href="#contacto" data-i18n="projects_cta_1">Iniciar proyecto</a>
+            <a class="btn" href="#conceptos" data-i18n="projects_cta_2">Ver concepts</a>
           </div>
         </article>
 
@@ -950,13 +1033,13 @@
           <div>
             <div class="cardHead">
               <div>
-                <h3 class="cardTitle">Dirección del portfolio</h3>
-                <div class="cardSub">Qué tipo de trabajo va a vivir acá.</div>
+                <h3 class="cardTitle" data-i18n="proj_side_title">Dirección del portfolio</h3>
+                <div class="cardSub" data-i18n="proj_side_sub">Qué tipo de trabajo va a vivir acá.</div>
               </div>
-              <span class="cardLabel">En crecimiento</span>
+              <span class="cardLabel" data-i18n="label_growing">En crecimiento</span>
             </div>
 
-            <p>
+            <p data-i18n="proj_side_text">
               VEKTO no se limita a páginas web. El portfolio está orientado a mostrar estructura digital:
               presencia, producto, operación y mejoras concretas para empresas y profesionales.
             </p>
@@ -964,13 +1047,13 @@
 
           <div>
             <div class="stack">
-              <span class="chip">Marca</span>
-              <span class="chip">Producto</span>
-              <span class="chip">Estrategia</span>
+              <span class="chip" data-i18n="chip_brand">Marca</span>
+              <span class="chip" data-i18n="chip_product">Producto</span>
+              <span class="chip" data-i18n="chip_strategy">Estrategia</span>
             </div>
 
             <div class="cardActions">
-              <a class="btn primary" href="#contacto">Contacto</a>
+              <a class="btn primary" href="#contacto" data-i18n="nav_contact">Contacto</a>
             </div>
           </div>
         </article>
@@ -980,48 +1063,48 @@
     <section id="conceptos" class="reveal">
       <div class="sectionHeader">
         <div>
-          <h2>Concept work</h2>
-          <p>Trabajos conceptuales para mostrar criterio visual, estructura y capacidad de resolución.</p>
+          <h2 data-i18n="concepts_title">Concept work</h2>
+          <p data-i18n="concepts_sub">Trabajos conceptuales para mostrar criterio visual, estructura y capacidad de resolución.</p>
         </div>
-        <div class="sectionKicker">Claramente identificado como conceptual.</div>
+        <div class="sectionKicker" data-i18n="concepts_kicker">Claramente identificado como conceptual.</div>
       </div>
 
       <div class="grid">
         <article class="card">
           <div class="cardHead">
             <div>
-              <h3 class="cardTitle">Redesign concept</h3>
-              <div class="cardSub">Replanteo de una experiencia digital con problemas de claridad y conversión.</div>
+              <h3 class="cardTitle" data-i18n="concept_1_title">Redesign concept</h3>
+              <div class="cardSub" data-i18n="concept_1_sub">Replanteo de una experiencia digital con problemas de claridad y conversión.</div>
             </div>
-            <span class="cardLabel">Conceptual</span>
+            <span class="cardLabel" data-i18n="label_conceptual">Conceptual</span>
           </div>
-          <p>
+          <p data-i18n="concept_1_text">
             Trabajo enfocado en reorganizar contenido, mejorar jerarquía visual y elevar la percepción de una marca
             que necesita una presentación más seria, clara y actual.
           </p>
           <div class="stack">
             <span class="chip">UX</span>
             <span class="chip">UI</span>
-            <span class="chip">Arquitectura</span>
+            <span class="chip" data-i18n="chip_architecture">Arquitectura</span>
           </div>
         </article>
 
         <article class="card">
           <div class="cardHead">
             <div>
-              <h3 class="cardTitle">Sistema para negocio local</h3>
-              <div class="cardSub">Concepto de producto para ordenar clientes, operaciones y gestión diaria.</div>
+              <h3 class="cardTitle" data-i18n="concept_2_title">Sistema para negocio local</h3>
+              <div class="cardSub" data-i18n="concept_2_sub">Concepto de producto para ordenar clientes, operaciones y gestión diaria.</div>
             </div>
-            <span class="cardLabel">Conceptual</span>
+            <span class="cardLabel" data-i18n="label_conceptual">Conceptual</span>
           </div>
-          <p>
+          <p data-i18n="concept_2_text">
             Concepto de herramienta interna pensado para resolver estructura operativa:
             información, clientes, procesos y visibilidad general del negocio en un solo entorno.
           </p>
           <div class="stack">
             <span class="chip">Dashboard</span>
-            <span class="chip">Sistema</span>
-            <span class="chip">Operación</span>
+            <span class="chip" data-i18n="chip_system">Sistema</span>
+            <span class="chip" data-i18n="chip_operation">Operación</span>
           </div>
         </article>
       </div>
@@ -1030,16 +1113,16 @@
     <section id="estudio" class="reveal">
       <div class="sectionHeader">
         <div>
-          <h2>Estudio</h2>
-          <p>Una estructura pensada para construir productos digitales con criterio y dirección.</p>
+          <h2 data-i18n="studio_title">Estudio</h2>
+          <p data-i18n="studio_sub">Una estructura pensada para construir productos digitales con criterio y dirección.</p>
         </div>
-        <div class="sectionKicker">Dirección • sistema • ejecución</div>
+        <div class="sectionKicker" data-i18n="studio_kicker">Dirección • sistema • ejecución</div>
       </div>
 
       <div class="aboutGrid">
         <article class="panel">
-          <h3>Qué es VEKTO</h3>
-          <p>
+          <h3 data-i18n="studio_1_title">Qué es VEKTO</h3>
+          <p data-i18n="studio_1_text">
             VEKTO es un estudio digital enfocado en producto, experiencia, optimización y presencia web.
             El objetivo no es simplemente construir páginas o interfaces, sino desarrollar activos digitales
             que comuniquen mejor, funcionen mejor y eleven la percepción del negocio detrás.
@@ -1047,8 +1130,8 @@
         </article>
 
         <article class="panel">
-          <h3>Qué hacemos</h3>
-          <p>
+          <h3 data-i18n="studio_2_title">Qué hacemos</h3>
+          <p data-i18n="studio_2_text">
             Diseñamos y desarrollamos productos web, herramientas digitales, sistemas internos, landings,
             optimizaciones SEO, automatizaciones e integraciones con IA aplicada. Cada proyecto se aborda
             con una lógica clara: utilidad real, estructura sólida y mejor presentación.
@@ -1060,16 +1143,16 @@
     <section class="reveal">
       <div class="sectionHeader">
         <div>
-          <h2>Contacto</h2>
-          <p>La presencia digital abre la puerta. La conversación define el proyecto.</p>
+          <h2 data-i18n="contact_title">Contacto</h2>
+          <p data-i18n="contact_sub">La presencia digital abre la puerta. La conversación define el proyecto.</p>
         </div>
-        <div class="sectionKicker">Disponible para nuevos proyectos.</div>
+        <div class="sectionKicker" data-i18n="contact_kicker">Disponible para nuevos proyectos.</div>
       </div>
 
       <div class="aboutGrid">
         <article class="panel" id="contacto">
-          <h3>Hablemos</h3>
-          <p>
+          <h3 data-i18n="contact_panel_title">Hablemos</h3>
+          <p data-i18n="contact_panel_text">
             Si tu negocio necesita una presencia digital más sólida, una herramienta mejor pensada,
             una optimización técnica o una experiencia web con más nivel de ejecución, VEKTO está disponible.
           </p>
@@ -1081,8 +1164,8 @@
         </article>
 
         <article class="panel">
-          <h3>Cómo trabajamos</h3>
-          <p>
+          <h3 data-i18n="work_title">Cómo trabajamos</h3>
+          <p data-i18n="work_text">
             Cada proyecto se desarrolla con una lógica simple: entender el problema real, definir una estructura clara,
             mejorar la experiencia del usuario y construir una solución que se vea bien, funcione bien y pueda sostenerse en el tiempo.
           </p>
@@ -1091,16 +1174,309 @@
 
       <footer class="footer">
         <span>© <span id="year"></span> vekto.dev</span>
-        <span>Portfolio en evolución • construido con criterio</span>
+        <span data-i18n="footer_text">Portfolio en evolución • construido con criterio</span>
       </footer>
     </section>
   </div>
 
   <script>
+    const translations = {
+      es: {
+        page_title: "VEKTO — Estudio digital de producto, sistemas y experiencias web",
+        page_description: "VEKTO desarrolla productos digitales, sistemas, landings, SEO técnico, automatización e integración de IA para negocios y profesionales que buscan una presencia digital más sólida.",
+        brand_sub: "Digital product studio",
+        nav_capabilities: "Capacidades",
+        nav_projects: "Proyectos",
+        nav_concepts: "Conceptos",
+        nav_studio: "Estudio",
+        nav_contact: "Contacto",
+        nav_cta: "Ver trabajos",
+        eyebrow_1: "Independent digital studio",
+        eyebrow_2: "Producto • sistemas • optimización",
+        eyebrow_3: "Rosario, AR • remoto",
+        hero_lead: "VEKTO desarrolla productos digitales, sistemas y mejoras web con foco en claridad, rendimiento, presencia de marca y utilidad real para negocios y profesionales.",
+        hero_cta_1: "Hablemos",
+        hero_cta_2: "Qué podemos hacer",
+        meta_1: "Criterio",
+        meta_2: "Ejecución",
+        meta_3: "Escalabilidad",
+        terminal_1: "productos web • sistemas internos • landings • optimización digital",
+        terminal_2: "SEO • IA aplicada • mejora de sitios • procesos • presencia digital",
+        terminal_3: "HTML • CSS • JavaScript • PWA • Vercel • automatización",
+        terminal_4: "claridad • velocidad • percepción de marca • resolución real",
+        capabilities_title: "Capacidades",
+        capabilities_sub: "Soluciones digitales pensadas para mejorar presencia, operación y crecimiento.",
+        capabilities_kicker: "No solo presencia. También estructura.",
+        cap_1_title: "Productos y herramientas digitales",
+        cap_1_sub: "Sistemas, paneles y flujos para resolver procesos reales.",
+        cap_1_text: "Desarrollo de herramientas web, sistemas internos y soluciones digitales pensadas para ordenar tareas, agilizar operaciones y reducir fricción en el trabajo diario.",
+        cap_2_title: "Sitios y landings de alto impacto",
+        cap_2_sub: "Claridad visual, velocidad y mejor presentación comercial.",
+        cap_2_text: "Sitios y landings orientados a percepción de marca, estructura clara, carga rápida y una experiencia que transmita más solidez desde el primer contacto.",
+        cap_3_title: "SEO y posicionamiento",
+        cap_3_sub: "Mejoras estructurales para aumentar orden y visibilidad.",
+        cap_3_text: "Ajustes técnicos, estructurales y de contenido para fortalecer presencia en buscadores, mejorar legibilidad del sitio y apoyar un crecimiento digital más sólido.",
+        cap_4_title: "IA aplicada a negocio",
+        cap_4_sub: "Automatización, asistencia y reducción de tareas repetitivas.",
+        cap_4_text: "Integración de soluciones con inteligencia artificial para ordenar información, automatizar procesos, asistir flujos internos o acelerar tareas operativas.",
+        cap_5_title: "Mejora de sitios existentes",
+        cap_5_sub: "Corrección, rediseño y optimización de webs que hoy no rinden.",
+        cap_5_text: "Análisis y corrección de problemas en páginas existentes: rendimiento, estructura, experiencia, diseño, legibilidad, errores técnicos y percepción general.",
+        cap_6_title: "Organización digital y procesos",
+        cap_6_sub: "Orden para presupuestos, clientes, operaciones y flujos comerciales.",
+        cap_6_text: "Diseño de estructuras, paneles y herramientas para negocios que necesitan ordenar mejor sus operaciones, clientes, presupuestos o procesos de trabajo.",
+        label_product: "Producto",
+        label_web: "Web",
+        label_optimization: "Optimización",
+        label_rescue: "Rescate",
+        label_operation: "Operación",
+        projects_title: "Proyectos",
+        projects_sub: "Espacio preparado para trabajo real en producción y nuevas piezas que se irán sumando.",
+        projects_kicker: "Base lista para crecer.",
+        proj_main_title: "Trabajo en evolución",
+        proj_main_sub: "Portfolio preparado para incorporar casos reales, sistemas y productos.",
+        label_live_portfolio: "Portfolio vivo",
+        proj_main_text_1: "La estructura de VEKTO está pensada para crecer con proyectos reales y conceptuales sin perder claridad ni consistencia. La intención no es llenar espacio, sino construir una base sólida donde cada pieza nueva aporte autoridad real.",
+        proj_main_text_2: "A medida que se sumen nuevos trabajos, esta sección se convertirá en el núcleo del portfolio: casos activos, mejoras, productos propios y desarrollos orientados a negocio.",
+        chip_real_cases: "Casos reales",
+        chip_products: "Productos",
+        chip_systems: "Sistemas",
+        chip_landings: "Landings",
+        chip_improvements: "Mejoras",
+        projects_cta_1: "Iniciar proyecto",
+        projects_cta_2: "Ver concepts",
+        proj_side_title: "Dirección del portfolio",
+        proj_side_sub: "Qué tipo de trabajo va a vivir acá.",
+        label_growing: "En crecimiento",
+        proj_side_text: "VEKTO no se limita a páginas web. El portfolio está orientado a mostrar estructura digital: presencia, producto, operación y mejoras concretas para empresas y profesionales.",
+        chip_brand: "Marca",
+        chip_product: "Producto",
+        chip_strategy: "Estrategia",
+        concepts_title: "Concept work",
+        concepts_sub: "Trabajos conceptuales para mostrar criterio visual, estructura y capacidad de resolución.",
+        concepts_kicker: "Claramente identificado como conceptual.",
+        concept_1_title: "Redesign concept",
+        concept_1_sub: "Replanteo de una experiencia digital con problemas de claridad y conversión.",
+        concept_1_text: "Trabajo enfocado en reorganizar contenido, mejorar jerarquía visual y elevar la percepción de una marca que necesita una presentación más seria, clara y actual.",
+        concept_2_title: "Sistema para negocio local",
+        concept_2_sub: "Concepto de producto para ordenar clientes, operaciones y gestión diaria.",
+        concept_2_text: "Concepto de herramienta interna pensado para resolver estructura operativa: información, clientes, procesos y visibilidad general del negocio en un solo entorno.",
+        label_conceptual: "Conceptual",
+        chip_architecture: "Arquitectura",
+        chip_system: "Sistema",
+        chip_operation: "Operación",
+        studio_title: "Estudio",
+        studio_sub: "Una estructura pensada para construir productos digitales con criterio y dirección.",
+        studio_kicker: "Dirección • sistema • ejecución",
+        studio_1_title: "Qué es VEKTO",
+        studio_1_text: "VEKTO es un estudio digital enfocado en producto, experiencia, optimización y presencia web. El objetivo no es simplemente construir páginas o interfaces, sino desarrollar activos digitales que comuniquen mejor, funcionen mejor y eleven la percepción del negocio detrás.",
+        studio_2_title: "Qué hacemos",
+        studio_2_text: "Diseñamos y desarrollamos productos web, herramientas digitales, sistemas internos, landings, optimizaciones SEO, automatizaciones e integraciones con IA aplicada. Cada proyecto se aborda con una lógica clara: utilidad real, estructura sólida y mejor presentación.",
+        contact_title: "Contacto",
+        contact_sub: "La presencia digital abre la puerta. La conversación define el proyecto.",
+        contact_kicker: "Disponible para nuevos proyectos.",
+        contact_panel_title: "Hablemos",
+        contact_panel_text: "Si tu negocio necesita una presencia digital más sólida, una herramienta mejor pensada, una optimización técnica o una experiencia web con más nivel de ejecución, VEKTO está disponible.",
+        work_title: "Cómo trabajamos",
+        work_text: "Cada proyecto se desarrolla con una lógica simple: entender el problema real, definir una estructura clara, mejorar la experiencia del usuario y construir una solución que se vea bien, funcione bien y pueda sostenerse en el tiempo.",
+        footer_text: "Portfolio en evolución • construido con criterio",
+        typing: [
+          "Construimos el futuro",
+          "Construimos con criterio",
+          "Construimos lo que escala"
+        ]
+      },
+      en: {
+        page_title: "VEKTO — Digital product studio, systems and web experiences",
+        page_description: "VEKTO builds digital products, systems, landing pages, technical SEO, automation and AI integrations for businesses and professionals that need a stronger digital presence.",
+        brand_sub: "Digital product studio",
+        nav_capabilities: "Capabilities",
+        nav_projects: "Projects",
+        nav_concepts: "Concepts",
+        nav_studio: "Studio",
+        nav_contact: "Contact",
+        nav_cta: "View work",
+        eyebrow_1: "Independent digital studio",
+        eyebrow_2: "Product • systems • optimization",
+        eyebrow_3: "Rosario, AR • remote",
+        hero_lead: "VEKTO builds digital products, systems and web improvements focused on clarity, performance, brand presence and real utility for businesses and professionals.",
+        hero_cta_1: "Let’s talk",
+        hero_cta_2: "What we can build",
+        meta_1: "Judgment",
+        meta_2: "Execution",
+        meta_3: "Scalability",
+        terminal_1: "web products • internal systems • landing pages • digital optimization",
+        terminal_2: "SEO • applied AI • website improvement • processes • digital presence",
+        terminal_3: "HTML • CSS • JavaScript • PWA • Vercel • automation",
+        terminal_4: "clarity • speed • brand perception • real problem solving",
+        capabilities_title: "Capabilities",
+        capabilities_sub: "Digital solutions designed to improve presence, operations and growth.",
+        capabilities_kicker: "Not just presence. Also structure.",
+        cap_1_title: "Digital products and tools",
+        cap_1_sub: "Systems, dashboards and flows built to solve real processes.",
+        cap_1_text: "Development of web tools, internal systems and digital solutions designed to organize tasks, streamline operations and reduce friction in everyday work.",
+        cap_2_title: "High-impact websites and landing pages",
+        cap_2_sub: "Visual clarity, speed and stronger commercial presentation.",
+        cap_2_text: "Websites and landing pages focused on brand perception, clear structure, fast load times and an experience that feels more solid from the first contact.",
+        cap_3_title: "SEO and positioning",
+        cap_3_sub: "Structural improvements to increase order and visibility.",
+        cap_3_text: "Technical, structural and content-level adjustments to strengthen search visibility, improve site readability and support stronger digital growth.",
+        cap_4_title: "AI applied to business",
+        cap_4_sub: "Automation, assistance and reduction of repetitive tasks.",
+        cap_4_text: "Integration of AI-based solutions to organize information, automate processes, support internal workflows or accelerate operational tasks.",
+        cap_5_title: "Improvement of existing websites",
+        cap_5_sub: "Fixing, redesigning and optimizing websites that are underperforming.",
+        cap_5_text: "Analysis and correction of problems in existing websites: performance, structure, experience, design, readability, technical issues and overall perception.",
+        cap_6_title: "Digital organization and processes",
+        cap_6_sub: "Structure for quotes, clients, operations and commercial workflows.",
+        cap_6_text: "Design of structures, dashboards and tools for businesses that need to better organize operations, clients, quotes or internal workflows.",
+        label_product: "Product",
+        label_web: "Web",
+        label_optimization: "Optimization",
+        label_rescue: "Rescue",
+        label_operation: "Operations",
+        projects_title: "Projects",
+        projects_sub: "A base prepared for real production work and new pieces that will continue to be added.",
+        projects_kicker: "Built to grow.",
+        proj_main_title: "Work in progress",
+        proj_main_sub: "A portfolio designed to incorporate real cases, systems and products.",
+        label_live_portfolio: "Living portfolio",
+        proj_main_text_1: "VEKTO is structured to grow with real and conceptual projects without losing clarity or consistency. The goal is not to fill space, but to build a solid foundation where each new piece adds real authority.",
+        proj_main_text_2: "As new work is added, this section will become the core of the portfolio: active cases, improvements, original products and business-oriented builds.",
+        chip_real_cases: "Real cases",
+        chip_products: "Products",
+        chip_systems: "Systems",
+        chip_landings: "Landing pages",
+        chip_improvements: "Improvements",
+        projects_cta_1: "Start a project",
+        projects_cta_2: "View concepts",
+        proj_side_title: "Portfolio direction",
+        proj_side_sub: "What kind of work will live here.",
+        label_growing: "Growing",
+        proj_side_text: "VEKTO is not limited to websites. The portfolio is designed to show digital structure: presence, product, operations and concrete improvements for businesses and professionals.",
+        chip_brand: "Brand",
+        chip_product: "Product",
+        chip_strategy: "Strategy",
+        concepts_title: "Concept work",
+        concepts_sub: "Conceptual work to show visual judgment, structure and problem-solving ability.",
+        concepts_kicker: "Clearly identified as conceptual.",
+        concept_1_title: "Redesign concept",
+        concept_1_sub: "A rethinking of a digital experience with clarity and conversion problems.",
+        concept_1_text: "Work focused on reorganizing content, improving visual hierarchy and raising the perception of a brand that needs a clearer, stronger and more current presentation.",
+        concept_2_title: "System for local business",
+        concept_2_sub: "A product concept to organize clients, operations and daily management.",
+        concept_2_text: "Internal tool concept designed to solve operational structure: information, clients, processes and business visibility in a single environment.",
+        label_conceptual: "Conceptual",
+        chip_architecture: "Architecture",
+        chip_system: "System",
+        chip_operation: "Operations",
+        studio_title: "Studio",
+        studio_sub: "A structure designed to build digital products with judgment and direction.",
+        studio_kicker: "Direction • system • execution",
+        studio_1_title: "What VEKTO is",
+        studio_1_text: "VEKTO is a digital studio focused on product, experience, optimization and web presence. The goal is not simply to build pages or interfaces, but to develop digital assets that communicate better, work better and elevate the perception of the business behind them.",
+        studio_2_title: "What we do",
+        studio_2_text: "We design and develop web products, digital tools, internal systems, landing pages, SEO optimizations, automations and applied AI integrations. Every project is approached with a clear logic: real utility, strong structure and stronger presentation.",
+        contact_title: "Contact",
+        contact_sub: "Digital presence opens the door. The conversation defines the project.",
+        contact_kicker: "Available for new projects.",
+        contact_panel_title: "Let’s talk",
+        contact_panel_text: "If your business needs a stronger digital presence, a better planned tool, a technical optimization or a web experience with a higher level of execution, VEKTO is available.",
+        work_title: "How we work",
+        work_text: "Each project is developed with a simple logic: understand the real problem, define a clear structure, improve user experience and build a solution that looks strong, works well and can be sustained over time.",
+        footer_text: "Portfolio in progress • built with judgment",
+        typing: [
+          "Build the future",
+          "Build with judgment",
+          "Build what scales"
+        ]
+      }
+    };
+
+    let currentLang = localStorage.getItem("vekto-lang") || "es";
+    let typingIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingTimeout;
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem("vekto-lang", lang);
+      document.documentElement.lang = lang;
+
+      document.getElementById("lang-es").classList.toggle("active", lang === "es");
+      document.getElementById("lang-en").classList.toggle("active", lang === "en");
+
+      document.title = translations[lang].page_title;
+      const desc = document.querySelector('meta[name="description"]');
+      if (desc) desc.setAttribute("content", translations[lang].page_description);
+
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+
+      resetTyping();
+    }
+
+    function resetTyping() {
+      clearTimeout(typingTimeout);
+      typingIndex = 0;
+      charIndex = 0;
+      isDeleting = false;
+      const el = document.getElementById("taglineType");
+      if (el) el.textContent = "";
+      startTyping();
+    }
+
+    function startTyping() {
+      const el = document.getElementById("taglineType");
+      if (!el) return;
+
+      if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        el.textContent = translations[currentLang].typing[0];
+        return;
+      }
+
+      const phrases = translations[currentLang].typing;
+      const currentText = phrases[typingIndex];
+
+      if (!isDeleting) {
+        el.textContent = currentText.slice(0, charIndex + 1);
+        charIndex++;
+
+        if (charIndex === currentText.length) {
+          isDeleting = true;
+          typingTimeout = setTimeout(startTyping, 1100);
+          return;
+        }
+
+        typingTimeout = setTimeout(startTyping, 66);
+      } else {
+        el.textContent = currentText.slice(0, charIndex - 1);
+        charIndex--;
+
+        if (charIndex === 0) {
+          isDeleting = false;
+          typingIndex = (typingIndex + 1) % phrases.length;
+          typingTimeout = setTimeout(startTyping, 420);
+          return;
+        }
+
+        typingTimeout = setTimeout(startTyping, 40);
+      }
+    }
+
     window.addEventListener("DOMContentLoaded", () => {
       const year = document.getElementById("year");
       if (year) year.textContent = new Date().getFullYear();
-      startTaglineTyping();
+
+      applyLanguage(currentLang);
+
+      document.getElementById("lang-es").addEventListener("click", () => applyLanguage("es"));
+      document.getElementById("lang-en").addEventListener("click", () => applyLanguage("en"));
     });
 
     const revealEls = Array.from(document.querySelectorAll(".reveal"));
@@ -1123,57 +1499,6 @@
         history.replaceState(null, "", id);
       });
     });
-
-    function startTaglineTyping() {
-      const el = document.getElementById("taglineType");
-      if (!el) return;
-
-      if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        el.textContent = "Build the future";
-        return;
-      }
-
-      const phrases = [
-        "Build the future",
-        "Build with standard",
-        "Build what scales"
-      ];
-
-      const typingSpeed = 66;
-      const deletingSpeed = 40;
-      const pauseAfterTyped = 1100;
-      const pauseAfterDeleted = 420;
-
-      let phraseIndex = 0;
-      let i = 0;
-      let direction = 1;
-
-      const tick = () => {
-        const text = phrases[phraseIndex];
-        el.textContent = text.slice(0, i);
-
-        if (direction === 1) {
-          if (i < text.length) {
-            i++;
-            setTimeout(tick, typingSpeed);
-          } else {
-            direction = -1;
-            setTimeout(tick, pauseAfterTyped);
-          }
-        } else {
-          if (i > 0) {
-            i--;
-            setTimeout(tick, deletingSpeed);
-          } else {
-            direction = 1;
-            phraseIndex = (phraseIndex + 1) % phrases.length;
-            setTimeout(tick, pauseAfterDeleted);
-          }
-        }
-      };
-
-      tick();
-    }
   </script>
 </body>
 </html>
